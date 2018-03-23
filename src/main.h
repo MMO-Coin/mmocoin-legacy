@@ -29,7 +29,7 @@ class CNode;
 class CTxMemPool;
 
 // first 1000 blocks - all coinbase of 100000 ea, last 50 are just for 'padding' (just in case)
-static const int LAST_POW_BLOCK = 2000;
+static const int LAST_POW_BLOCK = 2000000;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
@@ -48,7 +48,7 @@ static const int64_t MIN_TX_FEE = 10000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 /** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 28019323 * COIN; //Total coin will be relase.
+static const int64_t MAX_MONEY = 260000000 * COIN; //Total coin will be relase.
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
