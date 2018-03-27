@@ -4,12 +4,12 @@
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
         <source>About mmocoin</source>
-        <translation>ブラックコインについて</translation>
+        <translation>MMOCoinについて</translation>
     </message>
     <message>
         <location line="+39"/>
         <source>&lt;b&gt;mmocoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;ブラックコイン&lt;/b&gt;バージョン</translation>
+        <translation>&lt;b&gt;MMOCoin&lt;/b&gt;バージョン</translation>
     </message>
     <message>
         <location line="+41"/>
@@ -66,7 +66,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="-46"/>
         <source>These are your mmocoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>これは支払いを受けるためのブラックコインのアドレス。支払い管理をするのため、各送信者へ、それぞれのアドレスを伝えたほうがいいです。</translation>
+        <translation>これは支払いを受けるためのMMOCoinのアドレス。支払い管理をするのため、各送信者へ、それぞれのアドレスを伝えたほうがいいです。</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -81,12 +81,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="+11"/>
         <source>Sign a message to prove you own a mmocoin address</source>
-        <translation>所有権の証明するためのメサッジを署名する。</translation>
+        <translation>所有権の証明するためのメッセージを署名する。</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Sign &amp;Message</source>
-        <translation>メサッジを署名する。</translation>
+        <translation>メッセージを署名する。</translation>
     </message>
     <message>
         <location line="+25"/>
@@ -264,7 +264,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="-58"/>
         <source>mmocoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>ただいま、暗号化手順を完成するため、ブラックコインQTは閉じます。尚、ウォレットを暗号化をされたにしても、PCのウイルスから盗難防止の報償できないことを、ご理解をお願い足します。</translation>
+        <translation>ただいま、暗号化手順を完成するため、MMOCoinQTは閉じます。尚、ウォレットを暗号化をされたにしても、PCのウイルスから盗難防止の報償できないことを、ご理解をお願い足します。</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -353,7 +353,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="-13"/>
         <source>&amp;Receive coins</source>
-        <translation>コインを受け取る</translation>
+        <translation>受取</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -378,7 +378,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="+4"/>
         <source>Show information about mmocoin</source>
-        <translation>ブラックコインの情報を表示</translation>
+        <translation>MMOCoinの情報を表示</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -428,12 +428,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="-62"/>
         <source>Send coins to a mmocoin address</source>
-        <translation>ブラックコインアドレスへコインを送る</translation>
+        <translation>MMOCoinアドレスへコインを送る</translation>
     </message>
     <message>
         <location line="+45"/>
         <source>Modify configuration options for mmocoin</source>
-        <translation>ブラックコインの設定を変化する</translation>
+        <translation>MMOCoinの設定を変化する</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -473,7 +473,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="-200"/>
         <source>mmocoin</source>
-        <translation>ブラックコイン</translation>
+        <translation>MMOCoin</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -483,7 +483,7 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     <message>
         <location line="+178"/>
         <source>&amp;About mmocoin</source>
-        <translation>ブラックコインについて</translation>
+        <translation>MMOCoinについて</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -540,12 +540,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
         <location line="+0"/>
         <location line="+60"/>
         <source>mmocoin client</source>
-        <translation>ブラックコインクライアントソフトウェア</translation>
+        <translation>MMOCoinクライアントソフトウェア</translation>
     </message>
     <message numerus="yes">
         <location line="+70"/>
         <source>%n active connection(s) to mmocoin network</source>
-        <translation><numerusform>ブラックコインネットワークへの%n アクティブな接続</numerusform></translation>
+        <translation><numerusform>MMOCoinネットワークへの%n アクティブな接続</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -659,7 +659,7 @@ Address: %4
         <location line="-15"/>
         <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid mmocoin address or malformed URI parameters.</source>
-        <translation>URIのパーズができませんでした！。原因は無効なブラックコインアドレスか不正なURIパラメータ。</translation>
+        <translation>URIのパーズができませんでした！。原因は無効なMMOCoinアドレスか不正なURIパラメータ。</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -1053,7 +1053,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid mmocoin address.</source>
-        <translation>入力されたアドレス &quot;%1&quot; 、有効なブラックコインアドレスではない。</translation>
+        <translation>入力されたアドレス &quot;%1&quot; 、有効なMMOCoinアドレスではない。</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1072,7 +1072,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
         <source>mmocoin-Qt</source>
-        <translation>ブラックコインQT</translation>
+        <translation>MMOCoinQT</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1145,12 +1145,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+31"/>
         <source>Automatically start mmocoin after logging in to the system.</source>
-        <translation>システムのログイン次第、自動的にブラックコインをスタート。</translation>
+        <translation>システムのログイン次第、自動的にMMOCoinをスタート。</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Start mmocoin on system login</source>
-        <translation>システムログイン次第、ブラックコインをスタート</translation>
+        <translation>システムログイン次第、MMOCoinをスタート</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1170,7 +1170,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+6"/>
         <source>Automatically open the mmocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自動的にルーターでブラックコインクライエントソフトウェアのポートを開く。ルーターはUPnPのサポートあり、UPnPを有効にするならできる。</translation>
+        <translation>自動的にルーターでMMOCoinクライエントソフトウェアのポートを開く。ルーターはUPnPのサポートあり、UPnPを有効にするならできる。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1180,7 +1180,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Connect to the mmocoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>ブラックコインのネットワークへSOCKSプロキシで接続する（例：TORで接続するばい）</translation>
+        <translation>MMOCoinのネットワークへSOCKSプロキシで接続する（例：TORで接続するばい）</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1270,7 +1270,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+9"/>
         <source>Whether to show mmocoin addresses in the transaction list or not.</source>
-        <translation>処理の歴史でブラックコインのアドレスを表示する／しない。</translation>
+        <translation>処理の歴史でMMOCoinのアドレスを表示する／しない。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1317,7 +1317,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="-9"/>
         <location line="+9"/>
         <source>This setting will take effect after restarting mmocoin.</source>
-        <translation>この設定はブラックコインをリスタートした後に有効する。</translation>
+        <translation>この設定はMMOCoinをリスタートした後に有効する。</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1336,7 +1336,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+33"/>
         <location line="+231"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the mmocoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>表示されている情報は時間遅れている。接続したら、ウォレットは自動的にブラックコインネットワークと同期しますが過程は完了してません。</translation>
+        <translation>表示されている情報は時間遅れている。接続したら、ウォレットは自動的にMMOCoinネットワークと同期しますが過程は完了してません。</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1552,7 +1552,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Show the mmocoin-Qt help message to get a list with possible mmocoin command-line options.</source>
-        <translation>ブラックコインQTのコマンドラインのヘルプ情報を表示する。</translation>
+        <translation>MMOCoinQTのコマンドラインのヘルプ情報を表示する。</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1572,12 +1572,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="-104"/>
         <source>mmocoin - Debug window</source>
-        <translation>ブラックコイン：デバッグウインドウ</translation>
+        <translation>MMOCoin：デバッグウインドウ</translation>
     </message>
     <message>
         <location line="+25"/>
         <source>mmocoin Core</source>
-        <translation>ブラックコインコア</translation>
+        <translation>MMOCoinコア</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1597,7 +1597,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the mmocoin RPC console.</source>
-        <translation>ブラックコインRPCコンソールへようこそ。</translation>
+        <translation>MMOCoinRPCコンソールへようこそ。</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1756,7 +1756,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
         <source>Enter a mmocoin address (e.g. 8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>ブラックコインアドレスの入力 (例；8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <translation>MMOCoinアドレスの入力 (例；8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1856,7 +1856,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+251"/>
         <source>WARNING: Invalid mmocoin address</source>
-        <translation>警告：無効なブラックコインアドレス</translation>
+        <translation>警告：無効なMMOCoinアドレス</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1930,7 +1930,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
         <source>Enter a mmocoin address (e.g. 8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>ブラックコインアドレスの入力 (例；8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <translation>MMOCoinアドレスの入力 (例；8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
 </context>
 <context>
@@ -1991,7 +1991,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+21"/>
         <source>Sign the message to prove you own this mmocoin address</source>
-        <translation>所有権の証明するためこのメサッジを署名する</translation>
+        <translation>所有権の証明するためこのメッセージを署名する</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2034,7 +2034,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
         <source>Enter a mmocoin address (e.g. 8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
-        <translation>ブラックコインのアドレスを入力(例：8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
+        <translation>MMOCoinのアドレスを入力(例：8dpZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2044,7 +2044,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+3"/>
         <source>Enter mmocoin signature</source>
-        <translation>ブラックコインのデジタル署名を入力</translation>
+        <translation>MMOCoinのデジタル署名を入力</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2615,7 +2615,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
         <source>mmocoin version</source>
-        <translation>ブラックコインバージョン</translation>
+        <translation>MMOCoinバージョン</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2700,7 +2700,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+2"/>
         <source>Stake your coins to support network and gain reward (default: 1)</source>
-        <translation>褒奨金をもらうためと、ブラックコインネットワークをサッポートするために、コインを賭ける(デファルト：1)</translation>
+        <translation>褒奨金をもらうためと、MMOCoinネットワークをサッポートするために、コインを賭ける(デファルト：1)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2800,7 +2800,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+61"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong mmocoin will not work properly.</source>
-        <translation> 警告：コンピュータの日付と時間を調べてください。時間ずらしかったばい、ブラックコイン QTは正しく行動しない。</translation>
+        <translation> 警告：コンピュータの日付と時間を調べてください。時間ずらしかったばい、MMOCoin QTは正しく行動しない。</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -3006,7 +3006,7 @@ rpcpassword=%s
 ユーザ名とパスワードは同じであってはなりません。
 ファイルは存在しないばいは、所有者が読み取り可能な専用のファイルを作成してください。
 問題のことを知らせるために、alertnotifyの設定を有効にしたほうがいいです。
-例：alertnotify=echo %%s | mail -s &quot;ブラックコイン警告&quot; admin@foo.com
+例：alertnotify=echo %%s | mail -s &quot;MMOCoin警告&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3132,12 +3132,12 @@ rpcpassword=%s
     <message>
         <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  mmocoin is probably already running.</source>
-        <translation>%sディレクトリにをロックオンできない。ブラックコインQTは、もう発行してるでしょう。</translation>
+        <translation>%sディレクトリにをロックオンできない。MMOCoinQTは、もう発行してるでしょう。</translation>
     </message>
     <message>
         <location line="-98"/>
         <source>mmocoin</source>
-        <translation>ブラックコイン</translation>
+        <translation>MMOCoin</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3172,12 +3172,12 @@ rpcpassword=%s
     <message>
         <location line="+4"/>
         <source>Error loading wallet.dat: Wallet requires newer version of mmocoin</source>
-        <translation>wallet.dat 読み込みエラー: 　ブラックコインQTの最新バージョンが必要です</translation>
+        <translation>wallet.dat 読み込みエラー: 　MMOCoinQTの最新バージョンが必要です</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Wallet needed to be rewritten: restart mmocoin to complete</source>
-        <translation>ウォレットのデータをリライトしなければならい：ブラックコインQTをリスタートしてください</translation>
+        <translation>ウォレットのデータをリライトしなければならい：MMOCoinQTをリスタートしてください</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3247,7 +3247,7 @@ rpcpassword=%s
     <message>
         <location line="+122"/>
         <source>Unable to bind to %s on this computer. mmocoin is probably already running.</source>
-        <translation>このコンピューターで%sに結ぶことができなかった。ブラックコインQTは、もう発行してるでしょう。</translation>
+        <translation>このコンピューターで%sに結ぶことができなかった。MMOCoinQTは、もう発行してるでしょう。</translation>
     </message>
     <message>
         <location line="-97"/>
