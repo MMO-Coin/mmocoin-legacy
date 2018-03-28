@@ -1,0 +1,22 @@
+obj/sync.o: sync.cpp /Users/admin/mmocoin/src/sync.h \
+  /Users/admin/mmocoin/src/threadsafety.h \
+  /Users/admin/mmocoin/src/util.h /Users/admin/mmocoin/src/uint256.h \
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/e_os2.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ripemd.h /Users/admin/mmocoin/src/netbase.h \
+  /Users/admin/mmocoin/src/serialize.h \
+  /Users/admin/mmocoin/src/allocators.h \
+  /Users/admin/mmocoin/src/version.h \
+  /Users/admin/mmocoin/src/clientversion.h \
+  /Users/admin/mmocoin/src/compat.h
+sync.cpp /Users/admin/mmocoin/src/sync.h :
+  /Users/admin/mmocoin/src/threadsafety.h :
+  /Users/admin/mmocoin/src/util.h /Users/admin/mmocoin/src/uint256.h :
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/e_os2.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ripemd.h /Users/admin/mmocoin/src/netbase.h :
+  /Users/admin/mmocoin/src/serialize.h :
+  /Users/admin/mmocoin/src/allocators.h :
+  /Users/admin/mmocoin/src/version.h :
+  /Users/admin/mmocoin/src/clientversion.h :
+  /Users/admin/mmocoin/src/compat.h :

@@ -1,0 +1,37 @@
+obj/zerocoin/SerialNumberSignatureOfKnowledge.o: \
+  zerocoin/SerialNumberSignatureOfKnowledge.cpp zerocoin/Zerocoin.h \
+  zerocoin/../serialize.h /Users/admin/mmocoin/src/allocators.h \
+  /Users/admin/mmocoin/src/version.h \
+  /Users/admin/mmocoin/src/clientversion.h zerocoin/../bignum.h \
+  /Users/admin/mmocoin/src/uint256.h /opt/local/include/openssl/bn.h \
+  /opt/local/include/openssl/e_os2.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ossl_typ.h \
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h \
+  /opt/local/include/openssl/safestack.h \
+  /opt/local/include/openssl/opensslv.h \
+  /opt/local/include/openssl/symhacks.h zerocoin/../util.h \
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h \
+  /Users/admin/mmocoin/src/netbase.h /Users/admin/mmocoin/src/compat.h \
+  zerocoin/Params.h zerocoin/Coin.h zerocoin/Commitment.h \
+  zerocoin/Accumulator.h zerocoin/AccumulatorProofOfKnowledge.h \
+  zerocoin/CoinSpend.h zerocoin/SerialNumberSignatureOfKnowledge.h \
+  zerocoin/SpendMetaData.h zerocoin/ParamGeneration.h
+  zerocoin/SerialNumberSignatureOfKnowledge.cpp zerocoin/Zerocoin.h :
+  zerocoin/../serialize.h /Users/admin/mmocoin/src/allocators.h :
+  /Users/admin/mmocoin/src/version.h :
+  /Users/admin/mmocoin/src/clientversion.h zerocoin/../bignum.h :
+  /Users/admin/mmocoin/src/uint256.h /opt/local/include/openssl/bn.h :
+  /opt/local/include/openssl/e_os2.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ossl_typ.h :
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h :
+  /opt/local/include/openssl/safestack.h :
+  /opt/local/include/openssl/opensslv.h :
+  /opt/local/include/openssl/symhacks.h zerocoin/../util.h :
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h :
+  /Users/admin/mmocoin/src/netbase.h /Users/admin/mmocoin/src/compat.h :
+  zerocoin/Params.h zerocoin/Coin.h zerocoin/Commitment.h :
+  zerocoin/Accumulator.h zerocoin/AccumulatorProofOfKnowledge.h :
+  zerocoin/CoinSpend.h zerocoin/SerialNumberSignatureOfKnowledge.h :
+  zerocoin/SpendMetaData.h zerocoin/ParamGeneration.h :
