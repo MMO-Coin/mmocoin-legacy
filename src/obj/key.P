@@ -1,0 +1,34 @@
+obj/key.o: key.cpp /opt/local/include/openssl/ecdsa.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ec.h /opt/local/include/openssl/asn1.h \
+  /opt/local/include/openssl/e_os2.h /opt/local/include/openssl/bio.h \
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h \
+  /opt/local/include/openssl/safestack.h \
+  /opt/local/include/openssl/opensslv.h \
+  /opt/local/include/openssl/ossl_typ.h \
+  /opt/local/include/openssl/symhacks.h /opt/local/include/openssl/bn.h \
+  /opt/local/include/openssl/obj_mac.h /Users/admin/MMOCoin/src/key.h \
+  /Users/admin/MMOCoin/src/allocators.h \
+  /Users/admin/MMOCoin/src/serialize.h \
+  /Users/admin/MMOCoin/src/version.h \
+  /Users/admin/MMOCoin/src/clientversion.h \
+  /Users/admin/MMOCoin/src/uint256.h /Users/admin/MMOCoin/src/util.h \
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h \
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h
+key.cpp /opt/local/include/openssl/ecdsa.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ec.h /opt/local/include/openssl/asn1.h :
+  /opt/local/include/openssl/e_os2.h /opt/local/include/openssl/bio.h :
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h :
+  /opt/local/include/openssl/safestack.h :
+  /opt/local/include/openssl/opensslv.h :
+  /opt/local/include/openssl/ossl_typ.h :
+  /opt/local/include/openssl/symhacks.h /opt/local/include/openssl/bn.h :
+  /opt/local/include/openssl/obj_mac.h /Users/admin/MMOCoin/src/key.h :
+  /Users/admin/MMOCoin/src/allocators.h :
+  /Users/admin/MMOCoin/src/serialize.h :
+  /Users/admin/MMOCoin/src/version.h :
+  /Users/admin/MMOCoin/src/clientversion.h :
+  /Users/admin/MMOCoin/src/uint256.h /Users/admin/MMOCoin/src/util.h :
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h :
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h :

@@ -1,0 +1,36 @@
+obj/mmocoin/CoinSpend.o: mmocoin/CoinSpend.cpp mmocoin/MMOCoin.h \
+  mmocoin/../serialize.h /Users/admin/MMOCoin/src/allocators.h \
+  /Users/admin/MMOCoin/src/version.h \
+  /Users/admin/MMOCoin/src/clientversion.h mmocoin/../bignum.h \
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/bn.h \
+  /opt/local/include/openssl/e_os2.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ossl_typ.h \
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h \
+  /opt/local/include/openssl/safestack.h \
+  /opt/local/include/openssl/opensslv.h \
+  /opt/local/include/openssl/symhacks.h mmocoin/../util.h \
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h \
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h \
+  mmocoin/Params.h mmocoin/Coin.h mmocoin/Commitment.h \
+  mmocoin/Accumulator.h mmocoin/AccumulatorProofOfKnowledge.h \
+  mmocoin/CoinSpend.h mmocoin/SerialNumberSignatureOfKnowledge.h \
+  mmocoin/SpendMetaData.h mmocoin/ParamGeneration.h
+mmocoin/CoinSpend.cpp mmocoin/MMOCoin.h :
+  mmocoin/../serialize.h /Users/admin/MMOCoin/src/allocators.h :
+  /Users/admin/MMOCoin/src/version.h :
+  /Users/admin/MMOCoin/src/clientversion.h mmocoin/../bignum.h :
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/bn.h :
+  /opt/local/include/openssl/e_os2.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ossl_typ.h :
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h :
+  /opt/local/include/openssl/safestack.h :
+  /opt/local/include/openssl/opensslv.h :
+  /opt/local/include/openssl/symhacks.h mmocoin/../util.h :
+  /opt/local/include/openssl/sha.h /opt/local/include/openssl/ripemd.h :
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h :
+  mmocoin/Params.h mmocoin/Coin.h mmocoin/Commitment.h :
+  mmocoin/Accumulator.h mmocoin/AccumulatorProofOfKnowledge.h :
+  mmocoin/CoinSpend.h mmocoin/SerialNumberSignatureOfKnowledge.h :
+  mmocoin/SpendMetaData.h mmocoin/ParamGeneration.h :

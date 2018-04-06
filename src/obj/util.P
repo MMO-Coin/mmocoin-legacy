@@ -1,0 +1,38 @@
+obj/util.o: util.cpp /Users/admin/MMOCoin/src/util.h \
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/sha.h \
+  /opt/local/include/openssl/e_os2.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ripemd.h /Users/admin/MMOCoin/src/netbase.h \
+  /Users/admin/MMOCoin/src/serialize.h \
+  /Users/admin/MMOCoin/src/allocators.h \
+  /Users/admin/MMOCoin/src/version.h \
+  /Users/admin/MMOCoin/src/clientversion.h \
+  /Users/admin/MMOCoin/src/compat.h /Users/admin/MMOCoin/src/sync.h \
+  /Users/admin/MMOCoin/src/threadsafety.h \
+  /Users/admin/MMOCoin/src/strlcpy.h \
+  /Users/admin/MMOCoin/src/ui_interface.h \
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h \
+  /opt/local/include/openssl/safestack.h \
+  /opt/local/include/openssl/opensslv.h \
+  /opt/local/include/openssl/ossl_typ.h \
+  /opt/local/include/openssl/symhacks.h \
+  /opt/local/include/openssl/rand.h
+util.cpp /Users/admin/MMOCoin/src/util.h :
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/sha.h :
+  /opt/local/include/openssl/e_os2.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ripemd.h /Users/admin/MMOCoin/src/netbase.h :
+  /Users/admin/MMOCoin/src/serialize.h :
+  /Users/admin/MMOCoin/src/allocators.h :
+  /Users/admin/MMOCoin/src/version.h :
+  /Users/admin/MMOCoin/src/clientversion.h :
+  /Users/admin/MMOCoin/src/compat.h /Users/admin/MMOCoin/src/sync.h :
+  /Users/admin/MMOCoin/src/threadsafety.h :
+  /Users/admin/MMOCoin/src/strlcpy.h :
+  /Users/admin/MMOCoin/src/ui_interface.h :
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h :
+  /opt/local/include/openssl/safestack.h :
+  /opt/local/include/openssl/opensslv.h :
+  /opt/local/include/openssl/ossl_typ.h :
+  /opt/local/include/openssl/symhacks.h :
+  /opt/local/include/openssl/rand.h :

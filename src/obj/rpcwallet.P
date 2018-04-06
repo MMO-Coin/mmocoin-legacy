@@ -1,0 +1,88 @@
+obj/rpcwallet.o: rpcwallet.cpp /Users/admin/MMOCoin/src/wallet.h \
+  /Users/admin/MMOCoin/src/main.h /Users/admin/MMOCoin/src/bignum.h \
+  /Users/admin/MMOCoin/src/serialize.h \
+  /Users/admin/MMOCoin/src/allocators.h \
+  /Users/admin/MMOCoin/src/version.h \
+  /Users/admin/MMOCoin/src/clientversion.h \
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/bn.h \
+  /opt/local/include/openssl/e_os2.h \
+  /opt/local/include/openssl/opensslconf.h \
+  /opt/local/include/openssl/ossl_typ.h \
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h \
+  /opt/local/include/openssl/safestack.h \
+  /opt/local/include/openssl/opensslv.h \
+  /opt/local/include/openssl/symhacks.h /Users/admin/MMOCoin/src/sync.h \
+  /Users/admin/MMOCoin/src/threadsafety.h /Users/admin/MMOCoin/src/net.h \
+  /opt/local/include/openssl/rand.h /Users/admin/MMOCoin/src/mruset.h \
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h \
+  /Users/admin/MMOCoin/src/protocol.h /Users/admin/MMOCoin/src/addrman.h \
+  /Users/admin/MMOCoin/src/util.h /opt/local/include/openssl/sha.h \
+  /opt/local/include/openssl/ripemd.h /Users/admin/MMOCoin/src/script.h \
+  /Users/admin/MMOCoin/src/keystore.h /Users/admin/MMOCoin/src/crypter.h \
+  /Users/admin/MMOCoin/src/key.h /opt/local/include/openssl/ec.h \
+  /opt/local/include/openssl/asn1.h /opt/local/include/openssl/bio.h \
+  /Users/admin/MMOCoin/src/scrypt.h \
+  /Users/admin/MMOCoin/src/mmocoin/MMOCoin.h \
+  /Users/admin/MMOCoin/src/mmocoin/Params.h \
+  /Users/admin/MMOCoin/src/mmocoin/Coin.h \
+  /Users/admin/MMOCoin/src/mmocoin/Commitment.h \
+  /Users/admin/MMOCoin/src/mmocoin/Accumulator.h \
+  /Users/admin/MMOCoin/src/mmocoin/AccumulatorProofOfKnowledge.h \
+  /Users/admin/MMOCoin/src/mmocoin/CoinSpend.h \
+  /Users/admin/MMOCoin/src/mmocoin/SerialNumberSignatureOfKnowledge.h \
+  /Users/admin/MMOCoin/src/mmocoin/SpendMetaData.h \
+  /Users/admin/MMOCoin/src/mmocoin/ParamGeneration.h \
+  /Users/admin/MMOCoin/src/ui_interface.h \
+  /Users/admin/MMOCoin/src/walletdb.h /Users/admin/MMOCoin/src/db.h \
+  /Users/admin/MMOCoin/src/base58.h \
+  /Users/admin/MMOCoin/src/bitcoinrpc.h \
+  /Users/admin/MMOCoin/src/json/json_spirit_reader_template.h \
+  /Users/admin/MMOCoin/src/json/json_spirit_value.h \
+  /Users/admin/MMOCoin/src/json/json_spirit_error_position.h \
+  /Users/admin/MMOCoin/src/json/json_spirit_writer_template.h \
+  /Users/admin/MMOCoin/src/json/json_spirit_utils.h \
+  /Users/admin/MMOCoin/src/checkpoints.h /Users/admin/MMOCoin/src/init.h
+rpcwallet.cpp /Users/admin/MMOCoin/src/wallet.h :
+  /Users/admin/MMOCoin/src/main.h /Users/admin/MMOCoin/src/bignum.h :
+  /Users/admin/MMOCoin/src/serialize.h :
+  /Users/admin/MMOCoin/src/allocators.h :
+  /Users/admin/MMOCoin/src/version.h :
+  /Users/admin/MMOCoin/src/clientversion.h :
+  /Users/admin/MMOCoin/src/uint256.h /opt/local/include/openssl/bn.h :
+  /opt/local/include/openssl/e_os2.h :
+  /opt/local/include/openssl/opensslconf.h :
+  /opt/local/include/openssl/ossl_typ.h :
+  /opt/local/include/openssl/crypto.h /opt/local/include/openssl/stack.h :
+  /opt/local/include/openssl/safestack.h :
+  /opt/local/include/openssl/opensslv.h :
+  /opt/local/include/openssl/symhacks.h /Users/admin/MMOCoin/src/sync.h :
+  /Users/admin/MMOCoin/src/threadsafety.h /Users/admin/MMOCoin/src/net.h :
+  /opt/local/include/openssl/rand.h /Users/admin/MMOCoin/src/mruset.h :
+  /Users/admin/MMOCoin/src/netbase.h /Users/admin/MMOCoin/src/compat.h :
+  /Users/admin/MMOCoin/src/protocol.h /Users/admin/MMOCoin/src/addrman.h :
+  /Users/admin/MMOCoin/src/util.h /opt/local/include/openssl/sha.h :
+  /opt/local/include/openssl/ripemd.h /Users/admin/MMOCoin/src/script.h :
+  /Users/admin/MMOCoin/src/keystore.h /Users/admin/MMOCoin/src/crypter.h :
+  /Users/admin/MMOCoin/src/key.h /opt/local/include/openssl/ec.h :
+  /opt/local/include/openssl/asn1.h /opt/local/include/openssl/bio.h :
+  /Users/admin/MMOCoin/src/scrypt.h :
+  /Users/admin/MMOCoin/src/mmocoin/MMOCoin.h :
+  /Users/admin/MMOCoin/src/mmocoin/Params.h :
+  /Users/admin/MMOCoin/src/mmocoin/Coin.h :
+  /Users/admin/MMOCoin/src/mmocoin/Commitment.h :
+  /Users/admin/MMOCoin/src/mmocoin/Accumulator.h :
+  /Users/admin/MMOCoin/src/mmocoin/AccumulatorProofOfKnowledge.h :
+  /Users/admin/MMOCoin/src/mmocoin/CoinSpend.h :
+  /Users/admin/MMOCoin/src/mmocoin/SerialNumberSignatureOfKnowledge.h :
+  /Users/admin/MMOCoin/src/mmocoin/SpendMetaData.h :
+  /Users/admin/MMOCoin/src/mmocoin/ParamGeneration.h :
+  /Users/admin/MMOCoin/src/ui_interface.h :
+  /Users/admin/MMOCoin/src/walletdb.h /Users/admin/MMOCoin/src/db.h :
+  /Users/admin/MMOCoin/src/base58.h :
+  /Users/admin/MMOCoin/src/bitcoinrpc.h :
+  /Users/admin/MMOCoin/src/json/json_spirit_reader_template.h :
+  /Users/admin/MMOCoin/src/json/json_spirit_value.h :
+  /Users/admin/MMOCoin/src/json/json_spirit_error_position.h :
+  /Users/admin/MMOCoin/src/json/json_spirit_writer_template.h :
+  /Users/admin/MMOCoin/src/json/json_spirit_utils.h :
+  /Users/admin/MMOCoin/src/checkpoints.h /Users/admin/MMOCoin/src/init.h :
