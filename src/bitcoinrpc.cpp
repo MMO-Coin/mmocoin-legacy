@@ -154,11 +154,15 @@ vector<unsigned char> ParseHexO(const Object& o, string strKey)
 string CRPCTable::help(string strCommand) const
 {
     string strRet;
+    string category;
     set<rpcfn_type> setDone;
+       vector<pair<string, const CRPCCommand*> > vCommands;
     for (map<string, const CRPCCommand*>::const_iterator mi = mapCommands.begin(); mi != mapCommands.end(); ++mi)
-    {
-        const CRPCCommand *pcmd = mi->second;
-        string strMethod = mi->first;
+        vCommands.push_back(make_pair(mi->second->category + mi->first, mi->second));
+        sort(vCommands.begin(), vCommands.end());
+       BOOST_FOREACH (const PAIRTYPE(string, const CRPCCommand*) & command, vCommands) {
+        const CRPCCommand* pcmd = command.second;
+        string strMethod = pcmd->name;
         // We already filter duplicates, but these deprecated screw up the sort order
         if (strMethod.find("label") != string::npos)
             continue;
@@ -175,9 +179,18 @@ string CRPCTable::help(string strCommand) const
         {
             // Help text is returned in an exception
             string strHelp = string(e.what());
-            if (strCommand == "")
+            if (strCommand == ""){
                 if (strHelp.find('\n') != string::npos)
                     strHelp = strHelp.substr(0, strHelp.find('\n'));
+                if (category != pcmd->category) {
+                  if (!category.empty())
+                         strRet += "\n";
+                     category = pcmd->category;
+                     string firstLetter = category.substr(0, 1);
+                     boost::to_upper(firstLetter);
+                     strRet += "== " + firstLetter + category.substr(1) + " ==\n";
+                 }
+             }                         
             strRet += strHelp + "\n";
         }
     }
@@ -208,10 +221,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "Stop mmocoin server.");
+            "Stop MMOCoin server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "mmocoin server stopping";
+    return "MMOCoin server stopping";
 }
 
 
@@ -222,79 +235,93 @@ Value stop(const Array& params, bool fHelp)
 
 
 static const CRPCCommand vRPCCommands[] =
-{ //  name                      function                 safemd  unlocked
-  //  ------------------------  -----------------------  ------  --------
-    { "help",                   &help,                   true,   true },
-    { "stop",                   &stop,                   true,   true },
-    { "getbestblockhash",       &getbestblockhash,       true,   false },
-    { "getblockcount",          &getblockcount,          true,   false },
-    { "getconnectioncount",     &getconnectioncount,     true,   false },
-    { "getpeerinfo",            &getpeerinfo,            true,   false },
-    { "getdifficulty",          &getdifficulty,          true,   false },
-    { "getinfo",                &getinfo,                true,   false },
-    { "getsubsidy",             &getsubsidy,             true,   false },
-    { "getmininginfo",          &getmininginfo,          true,   false },
-    { "getstakinginfo",         &getstakinginfo,         true,   false },
-    { "getnewaddress",          &getnewaddress,          true,   false },
-    { "getnewpubkey",           &getnewpubkey,           true,   false },
-    { "getaccountaddress",      &getaccountaddress,      true,   false },
-    { "setaccount",             &setaccount,             true,   false },
-    { "getaccount",             &getaccount,             false,  false },
-    { "getaddressesbyaccount",  &getaddressesbyaccount,  true,   false },
-    { "sendtoaddress",          &sendtoaddress,          false,  false },
-    { "getreceivedbyaddress",   &getreceivedbyaddress,   false,  false },
-    { "getreceivedbyaccount",   &getreceivedbyaccount,   false,  false },
-    { "listreceivedbyaddress",  &listreceivedbyaddress,  false,  false },
-    { "listreceivedbyaccount",  &listreceivedbyaccount,  false,  false },
-    { "backupwallet",           &backupwallet,           true,   false },
-    { "keypoolrefill",          &keypoolrefill,          true,   false },
-    { "walletpassphrase",       &walletpassphrase,       true,   false },
-    { "walletpassphrasechange", &walletpassphrasechange, false,  false },
-    { "walletlock",             &walletlock,             true,   false },
-    { "encryptwallet",          &encryptwallet,          false,  false },
-    { "validateaddress",        &validateaddress,        true,   false },
-    { "validatepubkey",         &validatepubkey,         true,   false },
-    { "getbalance",             &getbalance,             false,  false },
-    { "move",                   &movecmd,                false,  false },
-    { "sendfrom",               &sendfrom,               false,  false },
-    { "sendmany",               &sendmany,               false,  false },
-    { "addmultisigaddress",     &addmultisigaddress,     false,  false },
-    { "addredeemscript",        &addredeemscript,        false,  false },
-    { "getrawmempool",          &getrawmempool,          true,   false },
-    { "getblock",               &getblock,               false,  false },
-    { "getblockbynumber",       &getblockbynumber,       false,  false },
-    { "getblockhash",           &getblockhash,           false,  false },
-    { "gettransaction",         &gettransaction,         false,  false },
-    { "listtransactions",       &listtransactions,       false,  false },
-    { "listaddressgroupings",   &listaddressgroupings,   false,  false },
-    { "signmessage",            &signmessage,            false,  false },
-    { "verifymessage",          &verifymessage,          false,  false },
-    { "getwork",                &getwork,                true,   false },
-    { "getworkex",              &getworkex,              true,   false },
-    { "listaccounts",           &listaccounts,           false,  false },
-    { "settxfee",               &settxfee,               false,  false },
-    { "getblocktemplate",       &getblocktemplate,       true,   false },
-    { "submitblock",            &submitblock,            false,  false },
-    { "listsinceblock",         &listsinceblock,         false,  false },
-    { "dumpprivkey",            &dumpprivkey,            false,  false },
-    { "dumpwallet",             &dumpwallet,             true,   false },
-    { "importwallet",           &importwallet,           false,  false },
-    { "importprivkey",          &importprivkey,          false,  false },
-    { "listunspent",            &listunspent,            false,  false },
-    { "getrawtransaction",      &getrawtransaction,      false,  false },
-    { "createrawtransaction",   &createrawtransaction,   false,  false },
-    { "decoderawtransaction",   &decoderawtransaction,   false,  false },
-    { "decodescript",           &decodescript,           false,  false },
-    { "signrawtransaction",     &signrawtransaction,     false,  false },
-    { "sendrawtransaction",     &sendrawtransaction,     false,  false },
-    { "getcheckpoint",          &getcheckpoint,          true,   false },
-    { "reservebalance",         &reservebalance,         false,  true},
-    { "checkwallet",            &checkwallet,            false,  true},
-    { "repairwallet",           &repairwallet,           false,  true},
-    { "resendtx",               &resendtx,               false,  true},
-    { "makekeypair",            &makekeypair,            false,  true},
-    { "sendalert",              &sendalert,              false,  false},
-};
+{ 
+   //  category          name                     function                  safemd  unlocked
+        //  ----------------  -----------------------  ------------------------  ------  --------
+
+        /* Overall control/query calls */
+        {"control",           "help",                   &help,                   true,   true },
+        {"control",           "stop",                   &stop,                   true,   true },
+        {"control",           "getinfo",                &getinfo,                true,   false},
+
+        /* P2P networking */
+        {"network",           "getconnectioncount",     &getconnectioncount,     true,   false},
+        {"network",           "getpeerinfo",            &getpeerinfo,            true,   false},
+        {"network",           "sendalert",              &sendalert,              false,  false},
+
+        /* Block chain mining and UTXO */
+        {"blockchain",        "getbestblockhash",       &getbestblockhash,       true,   false},
+        {"blockchain",        "getblockcount",          &getblockcount,          true,   false},
+        {"blockchain",        "getblock",               &getblock,               false,  false},
+        {"blockchain",        "getblockhash",           &getblockhash,           false,  false},
+        {"blockchain",        "getblockbynumber",       &getblockbynumber,       false,  false},
+        {"blockchain",        "getcheckpoint",          &getcheckpoint,          true,   false},
+        {"blockchain",        "getblocktemplate",       &getblocktemplate,       true,   false},
+        {"blockchain",        "getdifficulty",          &getdifficulty,          true,   false},
+        {"blockchain",        "getmininginfo",          &getmininginfo,          true,   false},
+        {"blockchain",        "getrawmempool",          &getrawmempool,          true,   false},
+        {"blockchain",        "getstakinginfo",         &getstakinginfo,         true,   false},
+        {"blockchain",        "getsubsidy",             &getsubsidy,             true,   false},
+        {"blockchain",        "getwork",                &getwork,                true,   false},
+        {"blockchain",        "getworkex",              &getworkex,              true,   false},
+        {"blockchain",        "settxfee",               &settxfee,               false,  false},
+        {"blockchain",        "submitblock",            &submitblock,            false,  false},
+        {"blockchain",        "reservebalance",         &reservebalance,         false,  true },      
+
+        /* Wallet */
+        {"wallet",            "addmultisigaddress",     &addmultisigaddress,     false,  false},
+        {"wallet",            "addredeemscript",        &addredeemscript,        false,  false},
+        {"wallet",            "backupwallet",           &backupwallet,           true,   false},
+        {"wallet",            "checkwallet",            &checkwallet,            false,  true },
+        {"wallet",            "dumpprivkey",            &dumpprivkey,            false,  false},
+        {"wallet",            "dumpwallet",             &dumpwallet,             true,   false},
+        {"wallet",            "encryptwallet",          &encryptwallet,          false,  false},
+        {"wallet",            "getaccountaddress",      &getaccountaddress,      true,   false},
+        {"wallet",            "getaccount",             &getaccount,             false,  false},
+        {"wallet",            "getaddressesbyaccount",  &getaddressesbyaccount,  true,   false},
+        {"wallet",            "getbalance",             &getbalance,             false,  false},
+        {"wallet",            "getnewaddress",          &getnewaddress,          true,   false},
+        {"wallet",            "getnewpubkey",           &getnewpubkey,           true,   false},
+        {"wallet",            "getreceivedbyaccount",   &getreceivedbyaccount,   false,  false},
+        {"wallet",            "getreceivedbyaddress",   &getreceivedbyaddress,   false,  false},
+        {"wallet",            "gettransaction",         &gettransaction,         false,  false},
+        {"wallet",            "importprivkey",          &importprivkey,          false,  false},
+        {"wallet",            "importwallet",           &importwallet,           false,  false},
+        {"wallet",            "keypoolrefill",          &keypoolrefill,          true,   false},
+        {"wallet",            "listaccounts",           &listaccounts,           false,  false},
+        {"wallet",            "listaddressgroupings",   &listaddressgroupings,   false,  false},
+        {"wallet",            "listreceivedbyaccount",  &listreceivedbyaccount,  false,  false},
+        {"wallet",            "listreceivedbyaddress",  &listreceivedbyaddress,  false,  false},
+        {"wallet",            "listsinceblock",         &listsinceblock,         false,  false},
+        {"wallet",            "listtransactions",       &listtransactions,       false,  false},
+        {"wallet",            "listunspent",            &listunspent,            false,  false},
+        {"wallet",            "move",                   &movecmd,                false,  false},
+        {"wallet",            "repairwallet",           &repairwallet,           false,  true },
+        {"wallet",            "sendfrom",               &sendfrom,               false,  false},
+        {"wallet",            "sendmany",               &sendmany,               false,  false},
+        {"wallet",            "sendtoaddress",          &sendtoaddress,          false,  false},
+        {"wallet",            "setaccount",             &setaccount,             true,   false},
+        {"wallet",            "resendtx",               &resendtx,               false,  true },
+        {"wallet",            "walletlock",             &walletlock,             true,   false},
+        {"wallet",            "walletpassphrasechange", &walletpassphrasechange, false,  false},
+        {"wallet",            "walletpassphrase",       &walletpassphrase,       true,   false},      
+        
+        /* Utility functions */
+        {"util",              "makekeypair",            &makekeypair,            false,  true },
+        {"util",              "signmessage",            &signmessage,            false,  false},
+        {"util",              "verifymessage",          &verifymessage,          false,  false},
+        {"util",              "validateaddress",        &validateaddress,        true,   false},
+        {"util",              "validatepubkey",         &validatepubkey,         true,   false},
+
+        /* Raw transactions */
+        {"rawtransactions",   "createrawtransaction",   &createrawtransaction,   false,  false},
+        {"rawtransactions",   "decoderawtransaction",   &decoderawtransaction,   false,  false},
+        {"rawtransactions",   "decodescript",           &decodescript,           false,  false},
+        {"rawtransactions",   "getrawtransaction",      &getrawtransaction,      false,  false},
+        {"rawtransactions",   "listunspent",            &listunspent,            false,  false},
+        {"rawtransactions",   "sendrawtransaction",     &sendrawtransaction,     false,  false},
+        {"rawtransactions",   "signrawtransaction",     &signrawtransaction,     false,  false},    
+       };
 
 CRPCTable::CRPCTable()
 {
@@ -327,7 +354,7 @@ string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeader
 {
     ostringstream s;
     s << "POST / HTTP/1.1\r\n"
-      << "User-Agent: mmocoin-json-rpc/" << FormatFullVersion() << "\r\n"
+      << "User-Agent: MMOCoin-json-rpc/" << FormatFullVersion() << "\r\n"
       << "Host: 127.0.0.1\r\n"
       << "Content-Type: application/json\r\n"
       << "Content-Length: " << strMsg.size() << "\r\n"
@@ -358,7 +385,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
     if (nStatus == HTTP_UNAUTHORIZED)
         return strprintf("HTTP/1.0 401 Authorization Required\r\n"
             "Date: %s\r\n"
-            "Server: mmocoin-json-rpc/%s\r\n"
+            "Server: MMOCoin-json-rpc/%s\r\n"
             "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
             "Content-Type: text/html\r\n"
             "Content-Length: 296\r\n"
@@ -385,7 +412,7 @@ static string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
             "Connection: %s\r\n"
             "Content-Length: %" PRIszu"\r\n"
             "Content-Type: application/json\r\n"
-            "Server: mmocoin-json-rpc/%s\r\n"
+            "Server: MMOCoin-json-rpc/%s\r\n"
             "\r\n"
             "%s",
         nStatus,
@@ -656,7 +683,7 @@ private:
 void ThreadRPCServer(void* parg)
 {
     // Make this thread recognisable as the RPC listener
-    RenameThread("mmocoin-rpclist");
+    RenameThread("MMOCoin-rpclist");
 
     try
     {
@@ -768,13 +795,13 @@ void ThreadRPCServer2(void* parg)
         uiInterface.ThreadSafeMessageBox(strprintf(
             _("%s, you must set a rpcpassword in the configuration file:\n %s\n"
               "It is recommended you use the following random password:\n"
-              "rpcuser=mmocoinrpc\n"
+              "rpcuser=MMOCoinrpc\n"
               "rpcpassword=%s\n"
               "(you do not need to remember this password)\n"
               "The username and password MUST NOT be the same.\n"
               "If the file does not exist, create it with owner-readable-only file permissions.\n"
               "It is also recommended to set alertnotify so you are notified of problems;\n"
-              "for example: alertnotify=echo %%s | mail -s \"mmocoin Alert\" admin@foo.com\n"),
+              "for example: alertnotify=echo %%s | mail -s \"MMOCoin Alert\" admin@foo.com\n"),
                 strWhatAmI.c_str(),
                 GetConfigFile().string().c_str(),
                 EncodeBase58(&rand_pwd[0],&rand_pwd[0]+32).c_str()),
@@ -960,7 +987,7 @@ static CCriticalSection cs_THREAD_RPCHANDLER;
 void ThreadRPCServer3(void* parg)
 {
     // Make this thread recognisable as the RPC handler
-    RenameThread("mmocoin-rpchand");
+    RenameThread("MMOCoin-rpchand");
 
     {
         LOCK(cs_THREAD_RPCHANDLER);

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>mmocoin - Debug window</string>
+   <string>MMOCoin - Debug window</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-image: url(:/images/gr);</string>
@@ -39,7 +39,7 @@
           </font>
          </property>
          <property name="text">
-          <string>mmocoin Core</string>
+          <string>MMOCoin Core</string>
          </property>
         </widget>
        </item>
@@ -325,7 +325,7 @@
        <item row="15" column="0">
         <widget class="QPushButton" name="openDebugLogfileButton">
          <property name="toolTip">
-          <string>Open the mmocoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
+          <string>Open the MMOCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -351,7 +351,7 @@
        <item row="17" column="0">
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
-          <string>Show the mmocoin-Qt help message to get a list with possible mmocoin command-line options.</string>
+          <string>Show the MMOCoin-Qt help message to get a list with possible MMOCoin command-line options.</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>

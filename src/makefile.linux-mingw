@@ -90,16 +90,16 @@ OBJS= \
     obj/scrypt.o \
     obj/scrypt-x86.o \
     obj/scrypt-x86_64.o \
-    obj/zerocoin/Accumulator.o \
-    obj/zerocoin/AccumulatorProofOfKnowledge.o \
-    obj/zerocoin/Coin.o \
-    obj/zerocoin/CoinSpend.o \
-    obj/zerocoin/Commitment.o \
-    obj/zerocoin/ParamGeneration.o \
-    obj/zerocoin/Params.o \
-    obj/zerocoin/SerialNumberSignatureOfKnowledge.o \
-    obj/zerocoin/SpendMetaData.o \
-    obj/zerocoin/ZeroTest.o
+    obj/mmocoin/Accumulator.o \
+    obj/mmocoin/AccumulatorProofOfKnowledge.o \
+    obj/mmocoin/Coin.o \
+    obj/mmocoin/CoinSpend.o \
+    obj/mmocoin/Commitment.o \
+    obj/mmocoin/ParamGeneration.o \
+    obj/mmocoin/Params.o \
+    obj/mmocoin/SerialNumberSignatureOfKnowledge.o \
+    obj/mmocoin/SpendMetaData.o \
+    obj/mmocoin/MMOTest.o
 
 all: mmocoind.exe
 
@@ -119,7 +119,7 @@ DEFS += -DHAVE_BUILD_INFO
 obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
-obj/zerocoin/%.o: zerocoin/%.cpp $(HEADERS)
+obj/mmocoin/%.o: mmocoin/%.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
 mmocoind.exe: $(OBJS:obj/%=obj/%)
@@ -134,7 +134,7 @@ obj/scrypt-x86_64.o: scrypt-x86_64.S
 
 clean:
 	-rm -f obj/*.o
-	-rm -f obj/zerocoin/*.o
+	-rm -f obj/mmocoin/*.o
 	-rm -f mmocoind.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..

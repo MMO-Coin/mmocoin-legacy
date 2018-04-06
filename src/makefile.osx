@@ -3,7 +3,7 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-# Mac OS X makefile for mmocoin
+# Mac OS X makefile for MMOCoin
 # Originally by Laszlo Hanyecz (solar@heliacal.net)
 
 CXX=llvm-g++
@@ -95,16 +95,16 @@ OBJS= \
     obj/scrypt.o \
     obj/scrypt-x86.o \
     obj/scrypt-x86_64.o \
-    obj/zerocoin/Accumulator.o \
-    obj/zerocoin/AccumulatorProofOfKnowledge.o \
-    obj/zerocoin/Coin.o \
-    obj/zerocoin/CoinSpend.o \
-    obj/zerocoin/Commitment.o \
-    obj/zerocoin/ParamGeneration.o \
-    obj/zerocoin/Params.o \
-    obj/zerocoin/SerialNumberSignatureOfKnowledge.o \
-    obj/zerocoin/SpendMetaData.o \
-    obj/zerocoin/ZeroTest.o
+    obj/mmocoin/Accumulator.o \
+    obj/mmocoin/AccumulatorProofOfKnowledge.o \
+    obj/mmocoin/Coin.o \
+    obj/mmocoin/CoinSpend.o \
+    obj/mmocoin/Commitment.o \
+    obj/mmocoin/ParamGeneration.o \
+    obj/mmocoin/Params.o \
+    obj/mmocoin/SerialNumberSignatureOfKnowledge.o \
+    obj/mmocoin/SpendMetaData.o \
+    obj/mmocoin/MMOTest.o
 
 ifndef USE_UPNP
 	override USE_UPNP = -
@@ -143,7 +143,7 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-obj/zerocoin/%.o: zerocoin/%.cpp
+obj/mmocoin/%.o: mmocoin/%.cpp
 	$(CXX) -c $(xCXXFLAGS) -MMD -MF $(@:%.o=%.d) -o $@ $<
 	@cp $(@:%.o=%.d) $(@:%.o=%.P); \
 	  sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
@@ -162,9 +162,9 @@ mmocoind: $(OBJS:obj/%=obj/%)
 clean:
 	-rm -f mmocoind
 	-rm -f obj/*.o
-	-rm -f obj/zerocoin/*.o
+	-rm -f obj/mmocoin/*.o
 	-rm -f obj/*.P
-	-rm -f obj/zerocoin/*.P
+	-rm -f obj/mmocoin/*.P
 	-rm -f obj/build.h
 
 FORCE:

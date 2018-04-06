@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = MMOCoin-qt
+TARGET = MMOCoin-Qt
 VERSION = 1.0.8
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
@@ -28,6 +28,8 @@ macx {
         OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib
         MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
         MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib
+        QRENCODE_INCLUDE_PATH=/usr/local/Cellar/qrencode/4.0.0/include
+		QRENCODE_LIB_PATH=/usr/local/Cellar/qrencode/4.0.0/lib
         
      }
 
@@ -68,7 +70,10 @@ win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
 contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
     DEFINES += USE_QRCODE
-    LIBS += -lqrencode
+     macx:LIBS += -lqrencode
+    win32:INCLUDEPATH +=$$QRENCODE_INCLUDE_PATH
+    win32:LIBS += $$join(QRENCODE_LIB_PATH,,-L) -lqrencode
+    !win32:!macx:LIBS += -lqrencode
 }
 
 # use: qmake "USE_UPNP=1" ( enabled by default; default)
@@ -178,17 +183,17 @@ HEADERS += src/qt/bitcoingui.h \
     src/kernel.h \
     src/scrypt.h \
     src/pbkdf2.h \
-    src/zerocoin/Accumulator.h \
-    src/zerocoin/AccumulatorProofOfKnowledge.h \
-    src/zerocoin/Coin.h \
-    src/zerocoin/CoinSpend.h \
-    src/zerocoin/Commitment.h \
-    src/zerocoin/ParamGeneration.h \
-    src/zerocoin/Params.h \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.h \
-    src/zerocoin/SpendMetaData.h \
-    src/zerocoin/ZeroTest.h \
-    src/zerocoin/Zerocoin.h \
+    src/mmocoin/Accumulator.h \
+    src/mmocoin/AccumulatorProofOfKnowledge.h \
+    src/mmocoin/Coin.h \
+    src/mmocoin/CoinSpend.h \
+    src/mmocoin/Commitment.h \
+    src/mmocoin/ParamGeneration.h \
+    src/mmocoin/Params.h \
+    src/mmocoin/SerialNumberSignatureOfKnowledge.h \
+    src/mmocoin/SpendMetaData.h \
+    src/mmocoin/MMOTest.h \
+    src/mmocoin/MMOCoin.h \
     src/serialize.h \
     src/strlcpy.h \
     src/main.h \
@@ -313,16 +318,16 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
-    src/zerocoin/Accumulator.cpp \
-    src/zerocoin/AccumulatorProofOfKnowledge.cpp \
-    src/zerocoin/Coin.cpp \
-    src/zerocoin/CoinSpend.cpp \
-    src/zerocoin/Commitment.cpp \
-    src/zerocoin/ParamGeneration.cpp \
-    src/zerocoin/Params.cpp \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.cpp \
-    src/zerocoin/SpendMetaData.cpp \
-    src/zerocoin/ZeroTest.cpp
+    src/mmocoin/Accumulator.cpp \
+    src/mmocoin/AccumulatorProofOfKnowledge.cpp \
+    src/mmocoin/Coin.cpp \
+    src/mmocoin/CoinSpend.cpp \
+    src/mmocoin/Commitment.cpp \
+    src/mmocoin/ParamGeneration.cpp \
+    src/mmocoin/Params.cpp \
+    src/mmocoin/SerialNumberSignatureOfKnowledge.cpp \
+    src/mmocoin/SpendMetaData.cpp \
+    src/mmocoin/MMOTest.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
