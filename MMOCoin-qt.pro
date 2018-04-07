@@ -1,6 +1,6 @@
 TEMPLATE = app
-TARGET = MMOCoin-qt
-VERSION = 1.0.7
+TARGET = MMOCoin-Qt
+VERSION = 1.0.8
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
@@ -18,19 +18,31 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
 # or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
-
-BOOST_LIB_SUFFIX=-mgw49-mt-sd-1_55
-BOOST_INCLUDE_PATH=C:/deps/boost_1_55_0
-BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
-BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
-BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
-OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1j/include
-OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
-MINIUPNPC_LIB_SUFFIX=-miniupnpc
-MINIUPNPC_INCLUDE_PATH=C:/deps/miniupnpc
-MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
-QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+win32 {
+	BOOST_LIB_SUFFIX=-mgw49-mt-s-1_53
+	BOOST_INCLUDE_PATH=c:/libraries/boost_1_53_0
+	BOOST_LIB_PATH=c:/libraries/boost_1_53_0/stage/lib
+	BDB_INCLUDE_PATH=c:/libraries/db-4.8.30.NC/build_unix
+	BDB_LIB_PATH=c:/libraries/db-4.8.30.NC/build_unix
+	OPENSSL_INCLUDE_PATH=c:/libraries/openssl-1.0.1l/include
+	OPENSSL_LIB_PATH=c:/libraries/openssl-1.0.1l
+	MINIUPNPC_INCLUDE_PATH=c:/libraries/miniupnpc-1.9
+	MINIUPNPC_LIB_PATH=c:/libraries/miniupnpc-1.9
+	QRENCODE_INCLUDE_PATH=c:/libraries/qrencode-3.4.4
+	QRENCODE_LIB_PATH=c:/libraries/qrencode-3.4.4/.libs
+}
+macx {
+        BOOST_INCLUDE_PATH=/usr/local/opt/boost@1.60/include
+        BOOST_LIB_PATH=/usr/local/opt/boost@1.60/lib
+        BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db@4/include
+        BDB_LIB_PATH=/usr/local/opt/berkeley-db@4/lib
+        OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
+        OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib
+        MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
+        MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib
+        QRENCODE_INCLUDE_PATH=/usr/local/Cellar/qrencode/4.0.0/include
+		QRENCODE_LIB_PATH=/usr/local/Cellar/qrencode/4.0.0/lib
+}
 
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -69,7 +81,10 @@ win32:QMAKE_LFLAGS *= -Wl,--large-address-aware -static
 contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
     DEFINES += USE_QRCODE
-    LIBS += -lqrencode
+     macx:LIBS += -lqrencode
+    win32:INCLUDEPATH +=$$QRENCODE_INCLUDE_PATH
+    win32:LIBS += $$join(QRENCODE_LIB_PATH,,-L) -lqrencode
+    !win32:!macx:LIBS += -lqrencode
 }
 
 # use: qmake "USE_UPNP=1" ( enabled by default; default)
@@ -116,7 +131,7 @@ SOURCES += src/txdb-leveldb.cpp
         QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
     }
     LIBS += -lshlwapi
-   # genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
+    genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
 }
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
@@ -179,17 +194,17 @@ HEADERS += src/qt/bitcoingui.h \
     src/kernel.h \
     src/scrypt.h \
     src/pbkdf2.h \
-    src/zerocoin/Accumulator.h \
-    src/zerocoin/AccumulatorProofOfKnowledge.h \
-    src/zerocoin/Coin.h \
-    src/zerocoin/CoinSpend.h \
-    src/zerocoin/Commitment.h \
-    src/zerocoin/ParamGeneration.h \
-    src/zerocoin/Params.h \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.h \
-    src/zerocoin/SpendMetaData.h \
-    src/zerocoin/ZeroTest.h \
-    src/zerocoin/Zerocoin.h \
+    src/mmocoin/Accumulator.h \
+    src/mmocoin/AccumulatorProofOfKnowledge.h \
+    src/mmocoin/Coin.h \
+    src/mmocoin/CoinSpend.h \
+    src/mmocoin/Commitment.h \
+    src/mmocoin/ParamGeneration.h \
+    src/mmocoin/Params.h \
+    src/mmocoin/SerialNumberSignatureOfKnowledge.h \
+    src/mmocoin/SpendMetaData.h \
+    src/mmocoin/MMOTest.h \
+    src/mmocoin/MMOCoin.h \
     src/serialize.h \
     src/strlcpy.h \
     src/main.h \
@@ -314,16 +329,16 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
-    src/zerocoin/Accumulator.cpp \
-    src/zerocoin/AccumulatorProofOfKnowledge.cpp \
-    src/zerocoin/Coin.cpp \
-    src/zerocoin/CoinSpend.cpp \
-    src/zerocoin/Commitment.cpp \
-    src/zerocoin/ParamGeneration.cpp \
-    src/zerocoin/Params.cpp \
-    src/zerocoin/SerialNumberSignatureOfKnowledge.cpp \
-    src/zerocoin/SpendMetaData.cpp \
-    src/zerocoin/ZeroTest.cpp
+    src/mmocoin/Accumulator.cpp \
+    src/mmocoin/AccumulatorProofOfKnowledge.cpp \
+    src/mmocoin/Coin.cpp \
+    src/mmocoin/CoinSpend.cpp \
+    src/mmocoin/Commitment.cpp \
+    src/mmocoin/ParamGeneration.cpp \
+    src/mmocoin/Params.cpp \
+    src/mmocoin/SerialNumberSignatureOfKnowledge.cpp \
+    src/mmocoin/SpendMetaData.cpp \
+    src/mmocoin/MMOTest.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -371,13 +386,13 @@ QMAKE_EXTRA_COMPILERS += TSQM
 OTHER_FILES += \
     doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
 
-isEmpty(BOOST_THREAD_LIB_SUFFIX) {
-    BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
+# platform specific defaults, if not overridden on command line
+isEmpty(BOOST_LIB_SUFFIX) {
+    macx:BOOST_LIB_SUFFIX = -mt
 }
 
 isEmpty(BOOST_THREAD_LIB_SUFFIX) {
-    win32:BOOST_THREAD_LIB_SUFFIX = _win32$$BOOST_LIB_SUFFIX
-    else:BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
+    BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
 }
 
 isEmpty(BDB_LIB_PATH) {
@@ -414,8 +429,8 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
 }
 
-macx:HEADERS += src/qt/macdockiconhandler.h
-macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+macx:HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns

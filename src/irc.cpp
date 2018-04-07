@@ -189,7 +189,7 @@ bool GetIPFromIRC(SOCKET hSocket, string strMyName, CNetAddr& ipRet)
 void ThreadIRCSeed(void* parg)
 {
     // Make this thread recognisable as the IRC seeding thread
-    RenameThread("mmocoin-ircseed");
+    RenameThread("MMOCoin-ircseed");
 
     try
     {
@@ -310,8 +310,8 @@ void ThreadIRCSeed2(void* parg)
 
             // Channel number is always 0 for initial release
             //int channel_number = 0;
-            Send(hSocket, strprintf("JOIN #mmocoin%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #mmocoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("JOIN #MMOCoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #MMOCoin%02d\r", channel_number).c_str());
         }
 
         int64_t nStart = GetTime();

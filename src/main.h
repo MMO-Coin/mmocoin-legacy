@@ -10,7 +10,7 @@
 #include "net.h"
 #include "script.h"
 #include "scrypt.h"
-#include "zerocoin/Zerocoin.h"
+#include "mmocoin/MMOCoin.h"
 
 #include <list>
 
@@ -74,7 +74,7 @@ int64_t GetLadderReward(int64_t nCoinValue);
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
 inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
 
-extern libzerocoin::Params* ZCParams;
+extern libmmocoin::Params* ZCParams;
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
 extern std::map<uint256, CBlockIndex*> mapBlockIndex;
