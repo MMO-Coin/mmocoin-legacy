@@ -80,16 +80,16 @@ OBJS= \
     obj/scrypt.o \
     obj/scrypt-x86.o \
     obj/scrypt-x86_64.o \
-    obj/zerocoin/Accumulator.o \
-    obj/zerocoin/AccumulatorProofOfKnowledge.o \
-    obj/zerocoin/Coin.o \
-    obj/zerocoin/CoinSpend.o \
-    obj/zerocoin/Commitment.o \
-    obj/zerocoin/ParamGeneration.o \
-    obj/zerocoin/Params.o \
-    obj/zerocoin/SerialNumberSignatureOfKnowledge.o \
-    obj/zerocoin/SpendMetaData.o \
-    obj/zerocoin/ZeroTest.o
+    obj/mmocoin/Accumulator.o \
+    obj/mmocoin/AccumulatorProofOfKnowledge.o \
+    obj/mmocoin/Coin.o \
+    obj/mmocoin/CoinSpend.o \
+    obj/mmocoin/Commitment.o \
+    obj/mmocoin/ParamGeneration.o \
+    obj/mmocoin/Params.o \
+    obj/mmocoin/SerialNumberSignatureOfKnowledge.o \
+    obj/mmocoin/SpendMetaData.o \
+    obj/mmocoin/MMOTest.o
 
 all: mmocoind.exe
 
@@ -104,7 +104,7 @@ obj/txdb-leveldb.o: leveldb/libleveldb.a
 obj/%.o: %.cpp $(HEADERS)
 	g++ -c $(CFLAGS) -o $@ $<
 
-obj/zerocoin/%.o: zerocoin/%.cpp
+obj/mmocoin/%.o: mmocoin/%.cpp
 	g++ -c $(CFLAGS) -o $@ $<
 
 obj/scrypt-x86.o: scrypt-x86.S
@@ -119,6 +119,6 @@ mmocoind.exe: $(OBJS:obj/%=obj/%)
 clean:
 	-del /Q mmocoind
 	-del /Q obj\*
-	-del /Q obj\zerocoin\*
+	-del /Q obj\mmocoin\*
 
 FORCE:

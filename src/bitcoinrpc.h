@@ -93,6 +93,7 @@ typedef json_spirit::Value(*rpcfn_type)(const json_spirit::Array& params, bool f
 class CRPCCommand
 {
 public:
+	std::string category;
     std::string name;
     rpcfn_type actor;
     bool okSafeMode;
@@ -119,6 +120,14 @@ public:
      * @throws an exception (json_spirit::Value) when an error happens.
      */
     json_spirit::Value execute(const std::string &method, const json_spirit::Array &params) const;
+    /**
+    * Returns a list of registered commands
+    * @returns List of registered commands.
+    */
+   std::vector<std::string> listCommands() const;
+
+
+
 };
 
 extern const CRPCTable tableRPC;
