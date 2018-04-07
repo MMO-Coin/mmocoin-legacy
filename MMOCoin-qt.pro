@@ -18,8 +18,20 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 # for boost thread win32 with _win32 sufix
 # use: BOOST_THREAD_LIB_SUFFIX=_win32-...
 # or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+win32 {
+	BOOST_LIB_SUFFIX=-mgw49-mt-s-1_53
+	BOOST_INCLUDE_PATH=c:/libraries/boost_1_53_0
+	BOOST_LIB_PATH=c:/libraries/boost_1_53_0/stage/lib
+	BDB_INCLUDE_PATH=c:/libraries/db-4.8.30.NC/build_unix
+	BDB_LIB_PATH=c:/libraries/db-4.8.30.NC/build_unix
+	OPENSSL_INCLUDE_PATH=c:/libraries/openssl-1.0.1l/include
+	OPENSSL_LIB_PATH=c:/libraries/openssl-1.0.1l
+	MINIUPNPC_INCLUDE_PATH=c:/libraries/miniupnpc-1.9
+	MINIUPNPC_LIB_PATH=c:/libraries/miniupnpc-1.9
+	QRENCODE_INCLUDE_PATH=c:/libraries/qrencode-3.4.4
+	QRENCODE_LIB_PATH=c:/libraries/qrencode-3.4.4/.libs
+}
 macx {
-#
         BOOST_INCLUDE_PATH=/usr/local/opt/boost@1.60/include
         BOOST_LIB_PATH=/usr/local/opt/boost@1.60/lib
         BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db@4/include
@@ -30,8 +42,7 @@ macx {
         MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib
         QRENCODE_INCLUDE_PATH=/usr/local/Cellar/qrencode/4.0.0/include
 		QRENCODE_LIB_PATH=/usr/local/Cellar/qrencode/4.0.0/lib
-        
-     }
+}
 
 # Dependency library locations can be customized with:
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
@@ -381,8 +392,7 @@ isEmpty(BOOST_LIB_SUFFIX) {
 }
 
 isEmpty(BOOST_THREAD_LIB_SUFFIX) {
-    win32:BOOST_THREAD_LIB_SUFFIX = _win32$$BOOST_LIB_SUFFIX
-    else:BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
+    BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
 }
 
 isEmpty(BDB_LIB_PATH) {

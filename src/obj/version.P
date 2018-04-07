@@ -1,6 +1,0 @@
-obj/version.o: version.cpp /Users/admin/MMOCoin/src/version.h \
-  /Users/admin/MMOCoin/src/clientversion.h \
-  /Users/admin/MMOCoin/src/obj/build.h
-version.cpp /Users/admin/MMOCoin/src/version.h :
-  /Users/admin/MMOCoin/src/clientversion.h :
-  /Users/admin/MMOCoin/src/obj/build.h :
