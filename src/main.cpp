@@ -2014,12 +2014,12 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
     // that can be verified before saving an orphan block.
 
     // Size limits
-    if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
-        return DoS(100, error("CheckBlock() : size limits failed"));
+    //if (vtx.empty() || vtx.size() > MAX_BLOCK_SIZE || ::GetSerializeSize(*this, SER_NETWORK, PROTOCOL_VERSION) > MAX_BLOCK_SIZE)
+    //    return DoS(100, error("CheckBlock() : size limits failed"));
 
     // Check proof of work matches claimed amount
-    if (fCheckPOW && IsProofOfWork() && !CheckProofOfWork(GetPoWHash(), nBits))
-        return DoS(50, error("CheckBlock() : proof of work failed"));
+    //if (fCheckPOW && IsProofOfWork() && !CheckProofOfWork(GetPoWHash(), nBits))
+    //    return DoS(50, error("CheckBlock() : proof of work failed"));
 
     // Check timestamp
     if (GetBlockTime() > FutureDrift(GetAdjustedTime()))
@@ -2054,8 +2054,9 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
             return DoS(50, error("CheckBlock() : coinstake timestamp violation nTimeBlock=%" PRId64" nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
         // NovaCoin: check proof-of-stake block signature
-        if (fCheckSig && !CheckBlockSignature())
-            return DoS(100, error("CheckBlock() : bad proof-of-stake block signature"));
+        if (fCheckSig && ((int64_t)vtx[1].nTime > 1527000000))
+          if (!CheckBlockSignature())
+             return DoS(100, error("CheckBlock() : bad proof-of-stake block signature"));
     }
 
     // Check transactions
