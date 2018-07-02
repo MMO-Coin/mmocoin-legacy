@@ -976,8 +976,8 @@ bool CBlock::ReadFromDisk(const CBlockIndex* pindex, bool fReadTransactions)
     }
     if (!ReadFromDisk(pindex->nFile, pindex->nBlockPos, fReadTransactions))
         return false;
-    if (GetHash() != pindex->GetBlockHash())
-        return error("CBlock::ReadFromDisk() : GetHash() doesn't match index");
+    //if (GetHash() != pindex->GetBlockHash())
+    //    return error("CBlock::ReadFromDisk() : GetHash() doesn't match index");
     return true;
 }
 

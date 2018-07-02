@@ -82,18 +82,19 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 	
 
 	
-	#ifdef Q_OS_MAC
+    #ifdef Q_OS_MAC
     resize(1060, 575);
     setWindowTitle(tr("MMOCoin - Mac"));
     qApp->setStyleSheet("QMainWindow { background-image:url(:images/mac);border:none;font-family:'Open Sans,sans-serif'; }");
     #elif _WIN32
     resize(1190, 645);
     setWindowTitle(tr("MMOCoin - Windows"));
-     qApp->setStyleSheet("QMainWindow { background-image:url(:images/bkg);border:none;font-family:'Open Sans,sans-serif'; }");
+    qApp->setStyleSheet("QMainWindow { background-image:url(:images/bkg);border:none;font-family:'Open Sans,sans-serif'; }");
     #else
-    resize(1190, 645);
+    resize(800, 600);
     setWindowTitle(tr("MMOCoin - Linux"));
     qApp->setStyleSheet("QMainWindow { background-image:url(:images/bkg);border:none;font-family:'Open Sans,sans-serif'; }");
+    this->setFixedSize(QSize(800,600));
     #endif
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
