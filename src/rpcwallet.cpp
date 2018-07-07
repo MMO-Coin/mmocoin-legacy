@@ -320,11 +320,61 @@ Value sendtoaddress(const Array& params, bool fHelp)
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
 
-    string strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
-    if (strError != "")
-        throw JSONRPCError(RPC_WALLET_ERROR, strError);
+    // Attempt a normal send before invoking smallsend
+    int nMismatchSpent;
+    int64_t nBalanceInQuestion;
+    string strError  = pwalletMain->SendMoneyToDestination(address.Get(), nAmount, wtx);
+    if (strError == "") {
+       return wtx.GetHash().GetHex();
+    } else {
+       // * check for inconsistencies (mismatch spent coins) then clean up
+       pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion, true);
+       if (nMismatchSpent != 0)
+          pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion);
+    }
 
-    return wtx.GetHash().GetHex();
+    // Send in multiples of MaxPerTransaction
+    int64_t MaxPerTransaction = 250 * COIN;
+    int64_t nAmountRemaining = nAmount;
+
+    // Send in multiples of MaxPerTransaction
+    if (nAmountRemaining > MaxPerTransaction) {
+      printf("* Invoked smallsend routine for %lu (/COIN), maxpertx set to %lu (/COIN)\n", nAmount, MaxPerTransaction);
+      while (nAmountRemaining > MaxPerTransaction) {
+        strError = pwalletMain->SendMoneyToDestination(address.Get(), MaxPerTransaction, wtx);
+        if (strError == "") {
+           nAmountRemaining -= MaxPerTransaction;
+           printf("Sent %lu (/COIN) in txid %s, still have %lu (/COIN) to send\n", MaxPerTransaction, wtx.GetHash().GetHex().c_str(), nAmountRemaining);
+        } else {
+           printf("Couldn't send %lu (/COIN)\n", MaxPerTransaction);
+           // * check for inconsistencies (mismatch spent coins)
+           pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion, true);
+           if (nMismatchSpent != 0)
+              pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion);
+           throw JSONRPCError(RPC_WALLET_ERROR, strError);
+        }
+      }
+    }
+
+    // Send remainder (nAmountRemaining)
+    if (nAmountRemaining > 0 && nAmountRemaining <= MaxPerTransaction) {
+       strError = pwalletMain->SendMoneyToDestination(address.Get(), nAmountRemaining, wtx);
+       if (strError == "") {
+          printf("Sent final amount of %lu (/COIN) in txid %s\n", nAmountRemaining, wtx.GetHash().GetHex().c_str());
+          return wtx.GetHash().GetHex();
+       } else {
+          printf("Couldn't send %lu (/COIN)\n", nAmountRemaining);
+          // * check for inconsistencies (mismatch spent coins)
+          pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion, true);
+          if (nMismatchSpent != 0)
+             pwalletMain->FixSpentCoins(nMismatchSpent, nBalanceInQuestion);
+          throw JSONRPCError(RPC_WALLET_ERROR, strError);
+       }
+    }
+
+    // Something unusual just happened
+    printf("We shouldn't be here\n");
+    throw JSONRPCError(RPC_WALLET_ERROR, strError);
 }
 
 Value listaddressgroupings(const Array& params, bool fHelp)
