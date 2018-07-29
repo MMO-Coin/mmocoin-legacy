@@ -16,7 +16,6 @@
 
 | Specification | Value |
 |:-----------|:-----------|
-| Block spacing | `90 Seconds` |
 | MinStakeAge | `4 Hours` |
 | MaxStakeAge | `2 Months` |
 
@@ -30,9 +29,3 @@
 | 10000-49999 MMO | `5%` |
 | 50000-99999 MMO | `7%` |
 | 100000 MMO  | `10%` |
-
-#### Technicals
-
-> - PoW Algorithm is Scrypt
-> - 22221 TCP is P2P Port
-> - 22222 TCP is RPC Port
