@@ -287,6 +287,7 @@ static const CRPCCommand vRPCCommands[] =
         {"wallet",            "gettransaction",         &gettransaction,         false,  false},
         {"wallet",            "importprivkey",          &importprivkey,          false,  false},
         {"wallet",            "importwallet",           &importwallet,           false,  false},
+	{"wallet",            "importaddress",          &importaddress,          false,  false},
         {"wallet",            "keypoolrefill",          &keypoolrefill,          true,   false},
         {"wallet",            "listaccounts",           &listaccounts,           false,  false},
         {"wallet",            "listaddressgroupings",   &listaddressgroupings,   false,  false},
@@ -311,7 +312,6 @@ static const CRPCCommand vRPCCommands[] =
         {"util",              "signmessage",            &signmessage,            false,  false},
         {"util",              "verifymessage",          &verifymessage,          false,  false},
         {"util",              "validateaddress",        &validateaddress,        true,   false},
-        {"util",              "validatepubkey",         &validatepubkey,         true,   false},
 
         /* Raw transactions */
         {"rawtransactions",   "createrawtransaction",   &createrawtransaction,   false,  false},
