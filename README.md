@@ -33,6 +33,5 @@
 
 #### Technicals
 
-> - PoW Algorithm is Scrypt
-> - 22221 TCP is P2P Port
+> - Algorithm is Scrypt
 > - 22222 TCP is RPC Port
